@@ -1,0 +1,24 @@
+{% extends 'base.html' %} 
+
+{% block head %}
+   <title>Create</title>
+{% endblock %}
+
+{% block body %}
+    <h3>Create article</h3>
+    <h4 class="text-warning">{{error}}</h4>
+    <form method="post">
+        <fieldset>
+            <div class="form-group">
+                <label for="title" class="form-label mt-4">Title</label>
+                <input type="text" class="form-control" name="title" id="title" placeholder="Title" value={{title}}>
+            </div>
+
+            <div class="form-group">
+                <label for="content" class="form-label mt-4">Content</label>
+                <textarea class="form-control" name="body" id="content" rows="3" placeholder="Content"  value={{content}}></textarea>
+              </div>
+            <button type="submit" class="btn btn-primary">Submit</button>
+        </fieldset>
+    </form>
+{% endblock %}

@@ -1,0 +1,32 @@
+{% extends 'base.html' %} 
+
+{% block head %}
+   <title>Search {{term}}</title>
+{% endblock %}
+
+{% block body %}
+    <h3>Search {{term}} ({{count}})</h3>
+
+    {% if count > 0 %}
+        <table class="table table-hover">
+            <thead>
+                <tr>
+                <th scope="col">Title</th>
+                <th scope="col"></th>
+                </tr>
+            </thead>
+            <tbody>
+                {% for article in articles %}
+                <tr class="table-active">
+                    <td>{{ article.title }}</td>
+                    <td><a class="btn btn-link" href="/article/{{ article.post_uri }}">Read>></a></td>
+                </tr>
+                {% endfor %}
+            </tbody>
+        </table>
+    {% else %}
+        <h3>There is no such an article :(</h3>
+    {% endif %}
+
+
+{% endblock %}

@@ -1,0 +1,29 @@
+{% extends 'base.html' %} 
+
+{% block head %}
+   <title>Best Articles</title>
+{% endblock %}
+
+{% block body %}
+    <h3>All articles ({{count}})</h3>
+    {% if count > 0 %}
+        <table class="table table-hover">
+            <thead>
+                <tr>
+                <th scope="col">Title</th>
+                <th scope="col"></th>
+                </tr>
+            </thead>
+            <tbody>
+                {% for article in all_articles %}
+                    <tr class="table-active">
+                        <td>{{ article.title }}</td>
+                        <td><a class="btn btn-link" href="/article/{{ article.post_uri }}">Read>></a></td>
+                    </tr>
+                {% endfor %}
+            </tbody>
+        </table>
+    {% else %}
+        <h3> Go to Create to write the first article</h3>    
+    {% endif %}
+{% endblock %}
